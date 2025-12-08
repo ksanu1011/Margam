@@ -13,7 +13,7 @@ const app = express();
 // Middleware
 app.use(cors(
     {
-        origin:'https://margam-steel.vercel.app',
+        origin:'https://margam-steel.vercel.app/api',
         methods: ['GET', 'POST', 'PUT', 'DELETE'],
         credentials: true   
     }
