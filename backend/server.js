@@ -24,9 +24,9 @@ app.use(express.json());
 connectDB();
 
 // Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/tournaments', tournamentRoutes);
-app.use('/api/players', playerRoutes);
+app.use(authRoutes);
+app.use(tournamentRoutes);
+app.use(playerRoutes);
 
 // Base route
 app.get('/', (req, res) => {
