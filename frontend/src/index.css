@@ -1,0 +1,325 @@
+/* ============================================
+   GLOBAL THEME VARIABLES
+   Purple / Futuristic / Neon Esports Theme
+=============================================== */
+:root {
+  /* Primary Palette */
+  --bg-primary: #0B0515;
+  /* Ultra-dark cosmic base */
+  --bg-secondary: #1A0B2E;
+  /* Deep Space Purple */
+
+  --card-bg: rgba(26, 11, 46, 0.6);
+  --glass-border: rgba(154, 78, 255, 0.3);
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #C084FC;
+  /* Soft Glow Lavender */
+
+  /* Accents */
+  --accent: #9A4EFF;
+  /* Neon Purple */
+  --accent-soft: #B265FF;
+  --accent-glow: rgba(154, 78, 255, 0.6);
+
+  --accent-cyan: #8AFFEF;
+  /* Aqua Cyan Glow */
+  --accent-pink: #FF6EE7;
+  /* Neon Pink Highlight */
+
+  /* Compatibility Aliases */
+  --accent-color: var(--accent);
+  --border-color: var(--glass-border);
+
+  --font-main: 'Inter', system-ui, sans-serif;
+
+  --danger: #FF0055;
+  --success: #00FF9D;
+}
+
+/* Light theme support (optional override / inversion if needed, but keeping dark for esports) */
+[data-theme="light"] {
+  --bg-primary: #f3f0ff;
+  --bg-secondary: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(154, 78, 255, 0.1);
+  --text-primary: #1A0B2E;
+  --text-secondary: #6B4E90;
+  --accent: #7B3FE4;
+}
+
+/* ============================================
+   BASE STYLES
+=============================================== */
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at top center, #1A0B2E 0%, #050208 80%);
+  font-family: var(--font-main);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: all 0.3s ease;
+  cursor: default;
+  /* Can add custom cursor later */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent);
+  transition: 0.3s;
+}
+
+a:hover {
+  color: var(--accent-pink);
+  text-shadow: 0 0 10px var(--accent-pink);
+}
+
+/* ============================================
+   NAVBAR
+=============================================== */
+.navbar {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(11, 5, 21, 0.6);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(154, 78, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 0 15px var(--accent);
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: #fff;
+  text-shadow: 0 0 10px var(--accent-cyan);
+}
+
+/* ============================================
+   HERO SECTION
+=============================================== */
+.hero {
+  /* Padding handled in component */
+  text-align: center;
+}
+
+.hero h1 {
+  /* Typography handled in component */
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent) 0%, #7B3FE4 100%);
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 4px;
+  /* More angular for esports */
+  font-weight: 700;
+  display: inline-block;
+  border: 1px solid transparent;
+  box-shadow: 0 0 20px rgba(154, 78, 255, 0.4);
+  transition: 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--accent-pink) 0%, var(--accent) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(255, 110, 231, 0.6);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--accent-cyan);
+  color: var(--accent-cyan);
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-outline:hover {
+  background: rgba(138, 255, 239, 0.1);
+  box-shadow: 0 0 15px rgba(138, 255, 239, 0.3);
+  color: #fff;
+}
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* ============================================
+   GLASSMORPHIC CARD (Purple Edition)
+=============================================== */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 12px;
+  padding: 25px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Bouncy float */
+}
+
+/* Adding the "Purple Hologram" Hover Effect */
+.card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: var(--accent-pink);
+  box-shadow: 0 0 30px rgba(154, 78, 255, 0.2), inset 0 0 20px rgba(154, 78, 255, 0.1);
+  background: rgba(26, 11, 46, 0.8);
+}
+
+/* ============================================
+   GRID SYSTEM
+=============================================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* ============================================
+   TABLES (Leaderboard - Neon Style)
+=============================================== */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  /* Spacing between rows */
+  margin-top: 20px;
+  background: transparent;
+}
+
+th {
+  text-transform: uppercase;
+  padding: 15px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  border-bottom: 2px solid rgba(154, 78, 255, 0.2);
+}
+
+/* ============================================
+   INPUT FIELDS
+=============================================== */
+input,
+select {
+  width: 100%;
+  padding: 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(154, 78, 255, 0.3);
+  background: rgba(11, 5, 21, 0.6);
+  color: #fff;
+  transition: 0.3s;
+  font-family: var(--font-main);
+}
+
+input:focus,
+select:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 15px rgba(138, 255, 239, 0.3);
+  outline: none;
+}
+
+/* ============================================
+   ANIMATED BACKGROUND ELEMENTS (Purple/Cyan)
+=============================================== */
+.floating-orb {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(154, 78, 255, 0.3), transparent 70%);
+  filter: blur(100px);
+  z-index: -1;
+  animation: float 10s infinite ease-in-out alternate;
+}
+
+.cyber-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200vw;
+  height: 200vh;
+  /* Purple Grid Lines */
+  background-image:
+    linear-gradient(rgba(154, 78, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(154, 78, 255, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+  animation: gridMove 20s linear infinite;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.cyber-grid-fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Fade from transparent to dark base */
+  background: radial-gradient(circle, transparent 0%, #0B0515 90%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: perspective(500px) rotateX(60deg) translateY(0) translateZ(-200px);
+  }
+
+  100% {
+    transform: perspective(500px) rotateX(60deg) translateY(60px) translateZ(-200px);
+  }
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0px) scale(1);
+  }
+
+  to {
+    transform: translateY(-40px) scale(1.1);
+  }
+}
